@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script>
+      (function (i, s, o, g, r, a, m) {
+        i["GoogleAnalyticsObject"] = r;
+        (i[r] =
+          i[r] ||
+          function () {
+            (i[r].q = i[r].q || []).push(arguments);
+          }),
+          (i[r].l = 1 * new Date());
+        (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m);
+      })(
+        window,
+        document,
+        "script",
+        "https://www.google-analytics.com/analytics.js",
+        "ga"
+      );
+      ga("create", "UA-31369187-2", "auto");
+      ga("send", "pageview");
+    </script>
+
+    <meta charset="utf-8" />
+    <meta
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+      name="viewport"
+    />
+    <meta content="yes" name="mobile-web-app-capable" />
+    <meta content="darkgreen" name="theme-color" />
+    <meta
+      content="Become a master of mental math. 100 difficulty levels, 150,000 users, 60 million  questions answered. Get started for free."
+      name="Description"
+    />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="Math Game" name="apple-mobile-web-app-title" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <link href="/js/manifest.json" rel="manifest" />
+    <link href="/favicon.ico" rel="shortcut icon" />
+    <link href="https://www.mathtrainer.org" rel="canonical" />
+    <title>Math Game &mdash; Practice Mental Math</title>
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"
+      integrity="sha384-Xi8rHCmBmhbuyyhbI88391ZKP2dmfnOl4rT9ZfRI7mLTdk1wblIUnrIq35nqwEvC"
+      crossorigin="anonymous"
+    /> -->
+
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <link rel="stylesheet" href="/css/css.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div class="main" id="mainid">
+        <div class="header">
+          <div class="header-left">
+            <div class="menu-btn menu-btn--left menu-toggle">
+              <svg
+                version="1.1"
+                id="Capa_1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px"
+                y="0px"
+                viewBox="0 0 489.802 489.802"
+                style="enable-background: new 0 0 489.802 489.802"
+                xml:space="preserve"
+              >
+                <g>
+                  <path
+                    d="M20.701,281.901l32.1,0.2c4.8,24.7,14.3,48.7,28.7,70.5l-22.8,22.6c-8.2,8.1-8.2,21.2-0.2,29.4l24.6,24.9
+               c8.1,8.2,21.2,8.2,29.4,0.2l22.8-22.6c21.6,14.6,45.5,24.5,70.2,29.5l-0.2,32.1c-0.1,11.5,9.2,20.8,20.7,20.9l35,0.2
+               c11.5,0.1,20.8-9.2,20.9-20.7l0.2-32.1c24.7-4.8,48.7-14.3,70.5-28.7l22.6,22.8c8.1,8.2,21.2,8.2,29.4,0.2l24.9-24.6
+               c8.2-8.1,8.2-21.2,0.2-29.4l-22.6-22.8c14.6-21.6,24.5-45.5,29.5-70.2l32.1,0.2c11.5,0.1,20.8-9.2,20.9-20.7l0.2-35
+               c0.1-11.5-9.2-20.8-20.7-20.9l-32.1-0.2c-4.8-24.7-14.3-48.7-28.7-70.5l22.8-22.6c8.2-8.1,8.2-21.2,0.2-29.4l-24.6-24.9
+               c-8.1-8.2-21.2-8.2-29.4-0.2l-22.8,22.6c-21.6-14.6-45.5-24.5-70.2-29.5l0.2-32.1c0.1-11.5-9.2-20.8-20.7-20.9l-35-0.2
+               c-11.5-0.1-20.8,9.2-20.9,20.7l-0.3,32.1c-24.8,4.8-48.8,14.3-70.5,28.7l-22.6-22.8c-8.1-8.2-21.2-8.2-29.4-0.2l-24.8,24.6
+               c-8.2,8.1-8.2,21.2-0.2,29.4l22.6,22.8c-14.6,21.6-24.5,45.5-29.5,70.2l-32.1-0.2c-11.5-0.1-20.8,9.2-20.9,20.7l-0.2,35
+               C-0.099,272.401,9.201,281.801,20.701,281.901z M179.301,178.601c36.6-36.2,95.5-35.9,131.7,0.7s35.9,95.5-0.7,131.7
+               s-95.5,35.9-131.7-0.7S142.701,214.801,179.301,178.601z"
+                  />
+                </g>
+              </svg>
+            </div>
+          </div>
+          <a href="/" class="banner header-center">Math Game</a>
+          <div class="header-right">
+            <div class="menu-btn menu-btn--right menu-toggle">
+              <svg
+                version="1.1"
+                id="Capa_1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px"
+                y="0px"
+                viewBox="0 0 489.802 489.802"
+                style="enable-background: new 0 0 489.802 489.802"
+                xml:space="preserve"
+              >
+                <g>
+                  <path
+                    d="M20.701,281.901l32.1,0.2c4.8,24.7,14.3,48.7,28.7,70.5l-22.8,22.6c-8.2,8.1-8.2,21.2-0.2,29.4l24.6,24.9
+               c8.1,8.2,21.2,8.2,29.4,0.2l22.8-22.6c21.6,14.6,45.5,24.5,70.2,29.5l-0.2,32.1c-0.1,11.5,9.2,20.8,20.7,20.9l35,0.2
+               c11.5,0.1,20.8-9.2,20.9-20.7l0.2-32.1c24.7-4.8,48.7-14.3,70.5-28.7l22.6,22.8c8.1,8.2,21.2,8.2,29.4,0.2l24.9-24.6
+               c8.2-8.1,8.2-21.2,0.2-29.4l-22.6-22.8c14.6-21.6,24.5-45.5,29.5-70.2l32.1,0.2c11.5,0.1,20.8-9.2,20.9-20.7l0.2-35
+               c0.1-11.5-9.2-20.8-20.7-20.9l-32.1-0.2c-4.8-24.7-14.3-48.7-28.7-70.5l22.8-22.6c8.2-8.1,8.2-21.2,0.2-29.4l-24.6-24.9
+               c-8.1-8.2-21.2-8.2-29.4-0.2l-22.8,22.6c-21.6-14.6-45.5-24.5-70.2-29.5l0.2-32.1c0.1-11.5-9.2-20.8-20.7-20.9l-35-0.2
+               c-11.5-0.1-20.8,9.2-20.9,20.7l-0.3,32.1c-24.8,4.8-48.8,14.3-70.5,28.7l-22.6-22.8c-8.1-8.2-21.2-8.2-29.4-0.2l-24.8,24.6
+               c-8.2,8.1-8.2,21.2-0.2,29.4l22.6,22.8c-14.6,21.6-24.5,45.5-29.5,70.2l-32.1-0.2c-11.5-0.1-20.8,9.2-20.9,20.7l-0.2,35
+               C-0.099,272.401,9.201,281.801,20.701,281.901z M179.301,178.601c36.6-36.2,95.5-35.9,131.7,0.7s35.9,95.5-0.7,131.7
+               s-95.5,35.9-131.7-0.7S142.701,214.801,179.301,178.601z"
+                  />
+                </g>
+              </svg>
+            </div>
+          </div>
+          <div class="menu menu--right">
+            <div class="menu-toggle close-menu-btn right">Close</div>
+            <div class="settings">
+              <div>
+                <div class="very-tall">
+                  <div class="setting" title="Set the color scheme to dark">
+                    <div class="setting-information">
+                      <div class="setting-title">Dark Mode</div>
+                    </div>
+                    <label class="setting-switch"
+                      ><input name="dark" type="checkbox" /><span
+                        class="setting-slider"
+                      ></span
+                    ></label>
+                  </div>
+                </div>
+                <div class="setting">
+                  <div class="setting-title subsetting-title">Easy</div>
+                  <label class="setting-switch"
+                    ><input name="addition" type="checkbox" checked="" /><span
+                      class="setting-slider"
+                    ></span
+                  ></label>
+                </div>
+                <div class="setting">
+                  <div class="setting-title subsetting-title">medium</div>
+                  <label class="setting-switch"
+                    ><input
+                      name="subtraction"
+                      type="checkbox"
+                      checked="" /><span class="setting-slider"></span
+                  ></label>
+                </div>
+                <div class="setting">
+                  <div class="setting-title subsetting-title">difficulty</div>
+                  <label class="setting-switch"
+                    ><input
+                      name="multiplication"
+                      type="checkbox"
+                      checked="" /><span class="setting-slider"></span
+                  ></label>
+                </div>
+
+                <div class="setting" title="Turn on advanced operations">
+                  <div class="col">
+                    <div class="setting-title subsetting-title">Advanced</div>
+                  </div>
+                  <label class="setting-switch"
+                    ><input name="advanced" type="checkbox" checked="" /><span
+                      class="setting-slider"
+                    ></span
+                  ></label>
+                </div>
+
+                <div class="location col vertical-margin tall">
+                  <div class="small color9 locationdetail"></div>
+                  <div class="small pointer row padding5">
+                    <div class="">Set with GPS</div>
+                    <img src="/images/gps.png" width="15px" height="15px" />
+                  </div>
+                </div>
+                <div class="vertical-margin">
+                  <div class="internal-links column">
+                    <a href="/leaderboard" class="internal-link">Leaderboard</a>
+                    <a target="_blank" href="/donate" class="internal-link"
+                      >Donate</a
+                    >
+                    <a href="/feedback" target="_blank" class="internal-link"
+                      >Send Feedback</a
+                    >
+                  </div>
+                </div>
+                <div class="menu-option"></div>
+                <div class="menu-information copyright">Math Game © 2022</div>
+              </div>
+            </div>
+          </div>
+          <div class="menu menu--left">
+            <div class="menu-toggle close-menu-btn left">Close</div>
+
+            <div class="settings">
+              <div>
+                <div class="very-tall">
+                  <div class="setting" title="Set the color scheme to dark">
+                    <div class="setting-information">
+                      <div class="setting-title">Dark Mode</div>
+                    </div>
+                    <label class="setting-switch"
+                      ><input name="dark" type="checkbox" /><span
+                        class="setting-slider"
+                      ></span
+                    ></label>
+                  </div>
+                </div>
+                <div class="setting">
+                  <div class="setting-title subsetting-title">Easy</div>
+                  <label class="setting-switch"
+                    ><input name="addition" type="checkbox" checked="" /><span
+                      class="setting-slider"
+                    ></span
+                  ></label>
+                </div>
+                <div class="setting">
+                  <div class="setting-title subsetting-title">medium</div>
+                  <label class="setting-switch"
+                    ><input
+                      name="subtraction"
+                      type="checkbox"
+                      checked="" /><span class="setting-slider"></span
+                  ></label>
+                </div>
+                <div class="setting">
+                  <div class="setting-title subsetting-title">difficulty</div>
+                  <label class="setting-switch"
+                    ><input
+                      name="multiplication"
+                      type="checkbox"
+                      checked="" /><span class="setting-slider"></span
+                  ></label>
+                </div>
+                <div class="setting" title="Turn on advanced operations">
+                  <div class="col">
+                    <div class="setting-title subsetting-title">Advanced</div>
+                  </div>
+                  <label class="setting-switch"
+                    ><input name="advanced" type="checkbox" checked="" /><span
+                      class="setting-slider"
+                    ></span
+                  ></label>
+                </div>
+                <div class="location col vertical-margin tall">
+                  <div class="small color9 locationdetail"></div>
+                  <div class="small pointer row padding5">
+                    <div class="">Set with GPS</div>
+                    <img src="/images/gps.png" width="15px" height="15px" />
+                  </div>
+                </div>
+                <div class="vertical-margin">
+                  <div class="internal-links column">
+                    <a target="_blank" href="/leaderboard" class="internal-link"
+                      >Leaderboard</a
+                    ><a target="_blank" href="/donate" class="internal-link"
+                      >Donate</a
+                    >
+                    <a target="_blank" href="/feedback" class="internal-link"
+                      >Send Feedback</a
+                    >
+                  </div>
+                </div>
+                <div class="menu-option"></div>
+                <div class="menu-information copyright">Math Game © 2022</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="content" id="root"></div>
+        <div class="overlay" style="display: none">
+          <div class="overlay-msg"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="/js/constant.js"></script>
+  <script></script>
+  <script src="/js/js.js"></script>
+</html>
