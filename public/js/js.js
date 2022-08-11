@@ -108,13 +108,4 @@ $(document).on("click", function (e) {
   }
 });
 
-function getLocation() {
-  fetch("http://ip-api.com/json")
-    .then((json) => json.json())
-    .then((data) => {
-      if (data.status === "success" && data.city && data.regionName) {
-        $(".locationdetail").html(data.city + ", " + data.regionName);
-      }
-    });
-}
-getLocation();
+

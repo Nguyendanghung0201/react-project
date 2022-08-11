@@ -1,4 +1,4 @@
-const baseurl = 'http://192.168.1.7:8888';
+const baseurl = 'http://mathgame.one';
 const fetchApi = (type, url, data, token) => {
   return new Promise((resolve, reject) => {
     try {

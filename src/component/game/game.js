@@ -4,6 +4,7 @@ import fetchApi, { sleep } from "../utilities";
 import TimeCount from "../timecount";
 import KeyBoard from "./keyboard";
 function GameOne({ updatePage, location, user, player }) {
+  const [keyboard, setKeyboard] = useState(true);
   const [heart] = useState([1, 2, 3]);
   const [gameover, setGameover] = useState(false);
   const data = useRef({
@@ -139,7 +140,7 @@ function GameOne({ updatePage, location, user, player }) {
       return (
         <img
           key={i}
-          src="/images/heart.png"
+          src="./images/heart.png"
           width="30px"
           height="30px"
           alt="some"
@@ -149,7 +150,7 @@ function GameOne({ updatePage, location, user, player }) {
       return (
         <img
           key={i}
-          src="/images/heart1.png"
+          src="./images/heart1.png"
           width="30px"
           height="30px"
           alt="some"
@@ -186,9 +187,37 @@ function GameOne({ updatePage, location, user, player }) {
   return (
     <React.Fragment>
       <section
-        className={data.current.status ? "math appear" : "math"}
+        className="math"
         id="gameone"
       >
+        <div className="very-tall">
+          <div className="setting" title="Use a touchscreen">
+            <div className="setting-information">
+              <div className="setting-title">Touchscreen</div>
+            </div>
+            <label className="setting-switch">
+              <input
+                onClick={() => setKeyboard(!keyboard)}
+                name="touch"
+                checked={keyboard}
+                type="checkbox"
+              />
+              <span className="setting-slider"></span>
+            </label>
+          </div>
+          <div
+            className="setting"
+            title="For touchscreens, flip the number pad vertically"
+          >
+            <div className="setting-information">
+              <div className="setting-title"> Flip Keypad</div>
+            </div>
+            <label className="setting-switch">
+              <input name="flip" type="checkbox" />
+              <span class="setting-slider"></span>
+            </label>
+          </div>
+        </div>
         <div className="gameheader">
           <div id="heart">{renderHeart}</div>
 
@@ -224,8 +253,8 @@ function GameOne({ updatePage, location, user, player }) {
             <div className="question">
               <span>
                 <span id="cauhoi">
-                  {listQuestions.current.length === 0 || true ? (
-                    <InlineMath math="111 - 234 + 456" />
+                  {listQuestions.current.length === 0 ? (
+                    <InlineMath math="? - ?" />
                   ) : (
                     <InlineMath
                       math={
@@ -254,7 +283,7 @@ function GameOne({ updatePage, location, user, player }) {
           </section>
         </section>
       </section>
-      <KeyBoard outPut={outPut} />
+      {keyboard && <KeyBoard outPut={outPut} />}
     </React.Fragment>
   );
 }

@@ -4,10 +4,11 @@ import TimeCount from "../timecount";
 import fetchApi, { sleep } from "../utilities";
 import KeyBoard from "../game/keyboard";
 
-let audio = new Audio("/sound/finish.mp3");
+let audio = new Audio("./sound/finish.mp3");
 // let right = new Audio("/");
 function GameBattle({ updatePage, socket, user, location }) {
   const [heart] = useState([1, 2, 3]);
+  const [keyboard, setKeyboard] = useState(true);
 
   const [loading, setLoading] = useState(true);
   const [countTime, setCountTime] = useState(3);
@@ -157,7 +158,7 @@ function GameBattle({ updatePage, socket, user, location }) {
       return (
         <img
           key={i}
-          src="/images/heart.png"
+          src="./images/heart.png"
           width="30px"
           height="30px"
           alt="some"
@@ -167,7 +168,7 @@ function GameBattle({ updatePage, socket, user, location }) {
       return (
         <img
           key={i}
-          src="/images/heart1.png"
+          src="./images/heart1.png"
           width="30px"
           height="30px"
           alt="some"
@@ -185,6 +186,17 @@ function GameBattle({ updatePage, socket, user, location }) {
           id: user.id,
         });
       }
+    }
+    updatePage("home");
+  };
+
+  const outGame2 = () => {
+    if (firstUser && firstUser.rooms) {
+      socket.emit("delete-rooms", {
+        ...firstUser,
+
+        id: user.id,
+      });
     }
     updatePage("home");
   };
@@ -228,6 +240,34 @@ function GameBattle({ updatePage, socket, user, location }) {
   return (
     <React.Fragment>
       <section className="math">
+      <div className="very-tall-batt">
+          <div className="setting" title="Use a touchscreen">
+            <div className="setting-information">
+              <div className="setting-title">Touchscreen</div>
+            </div>
+            <label className="setting-switch">
+              <input
+                onClick={() => setKeyboard(!keyboard)}
+                name="touch"
+                checked={keyboard}
+                type="checkbox"
+              />
+              <span className="setting-slider"></span>
+            </label>
+          </div>
+          <div
+            className="setting"
+            title="For touchscreens, flip the number pad vertically"
+          >
+            <div className="setting-information">
+              <div className="setting-title"> Flip Keypad</div>
+            </div>
+            <label className="setting-switch">
+              <input name="flip" type="checkbox" />
+              <span class="setting-slider"></span>
+            </label>
+          </div>
+        </div>
         <div className="gameinf gameheader">
           <TimeCount
             timeQuestion={question.time ?? 0}
@@ -244,7 +284,7 @@ function GameBattle({ updatePage, socket, user, location }) {
             <span className="countryinfor">
               <span>{location.country}</span>
               <span>
-                <img src={`/images/flags/type=${location.countryCode}.png`} />
+                <img src={`./images/flags/type=${location.countryCode}.png`} />
               </span>
             </span>
             {dataGame && dataGame.data[user.id] && (
@@ -260,7 +300,7 @@ function GameBattle({ updatePage, socket, user, location }) {
 
             {idright == user.id && (
               <span>
-                <img className="animation" src="/images/correct.png" />
+                <img className="animation" src="./images/correct.png" />
               </span>
             )}
           </div>
@@ -270,9 +310,14 @@ function GameBattle({ updatePage, socket, user, location }) {
                 Finish
               </div>
             )}
+            {loading && (
+              <div onClick={outGame2} className="done-btn" id="finishonline">
+                Finish
+              </div>
+            )}
             {gameover.current ? (
               <span>
-                <img src="/images/logo192.png" />
+                <img src="./images/logo192.png" />
               </span>
             ) : question && question.question ? (
               <div className="question-wrapper">
@@ -283,7 +328,7 @@ function GameBattle({ updatePage, socket, user, location }) {
                         <InlineMath math={question.question} />
                       ) : (
                         <span>
-                          <img src="/images/logo192.png" />
+                          <img src="./images/logo192.png" />
                         </span>
                       )}
                     </span>
@@ -295,7 +340,7 @@ function GameBattle({ updatePage, socket, user, location }) {
             ) : (
               <span>
                 {" "}
-                <img src="/images/logo192.png" />
+                <img src="./images/logo192.png" />
               </span>
             )}
             {question && question.question && !gameover.current && (
@@ -331,7 +376,7 @@ function GameBattle({ updatePage, socket, user, location }) {
                 <span>{dataGame?.data[friendId]?.country} </span>
                 <span>
                   <img
-                    src={`/images/flags/type=${dataGame?.data[friendId].countryCode}.png`}
+                    src={`./images/flags/type=${dataGame?.data[friendId].countryCode}.png`}
                   />
                 </span>
               </span>
@@ -343,14 +388,14 @@ function GameBattle({ updatePage, socket, user, location }) {
               </span>
               {idright == friendId && (
                 <span>
-                  <img className="animation" src="/images/correct.png" />
+                  <img className="animation" src="./images/correct.png" />
                 </span>
               )}
             </div>
           )}
         </section>
       </section>
-      <KeyBoard outPut={outPut} />
+      {keyboard && <KeyBoard outPut={outPut} />}
     </React.Fragment>
   );
 }

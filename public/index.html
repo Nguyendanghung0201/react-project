@@ -40,8 +40,8 @@
     <meta content="Math Game" name="apple-mobile-web-app-title" />
     <meta content="black" name="apple-mobile-web-app-status-bar-style" />
     <meta content="telephone=no" name="format-detection" />
-    <link href="/js/manifest.json" rel="manifest" />
-    <link href="/favicon.ico" rel="shortcut icon" />
+    <link href="./js/manifest.json" rel="manifest" />
+    <link href="./favicon.ico" rel="shortcut icon" />
     <link href="https://www.mathtrainer.org" rel="canonical" />
     <title>Math Game &mdash; Practice Mental Math</title>
     <!-- <link
@@ -54,15 +54,14 @@
     <!-- The loading of KaTeX is deferred to speed up page rendering -->
 
     <!-- To automatically render math in text elements, include the auto-render extension: -->
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
-    <link rel="stylesheet" href="/css/css.css" />
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="./css/css.css" />
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
     <div id="app">
       <div class="main" id="mainid">
-        <div class="header">
-          <div class="header-left">
+        <!-- <div class="header"> -->
+          <!-- <div class="header-left">
             <div class="menu-btn menu-btn--left menu-toggle">
               <svg
                 version="1.1"
@@ -91,9 +90,9 @@
                 </g>
               </svg>
             </div>
-          </div>
-          <a href="/" class="banner header-center">Math Game</a>
-          <div class="header-right">
+          </div> -->
+          <!-- <a href="/" class="banner header-center">Math Game</a> -->
+          <!-- <div class="header-right">
             <div class="menu-btn menu-btn--right menu-toggle">
               <svg
                 version="1.1"
@@ -122,8 +121,8 @@
                 </g>
               </svg>
             </div>
-          </div>
-          <div class="menu menu--right">
+          </div> -->
+          <!-- <div class="menu menu--right">
             <div class="menu-toggle close-menu-btn right">Close</div>
             <div class="settings">
               <div>
@@ -199,8 +198,8 @@
                 <div class="menu-information copyright">Math Game © 2022</div>
               </div>
             </div>
-          </div>
-          <div class="menu menu--left">
+          </div> -->
+          <!-- <div class="menu menu--left">
             <div class="menu-toggle close-menu-btn left">Close</div>
 
             <div class="settings">
@@ -276,8 +275,8 @@
                 <div class="menu-information copyright">Math Game © 2022</div>
               </div>
             </div>
-          </div>
-        </div>
+          </div> -->
+        <!-- </div> -->
         <div class="content" id="root"></div>
         <div class="overlay" style="display: none">
           <div class="overlay-msg"></div>
@@ -286,7 +285,8 @@
     </div>
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="/js/constant.js"></script>
+  <script src="./js/constant.js"></script>
+  <!-- <script src="https://sdk.crazygames.com/crazygames-sdk-v1.js"></script> -->
   <script></script>
-  <script src="/js/js.js"></script>
+  <script src="./js/js.js"></script>
 </html>

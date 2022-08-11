@@ -2,15 +2,14 @@ import React, { useState, Suspense, useEffect, useCallback } from "react";
 import Home from "./component/home/index";
 import "katex/dist/katex.min.css";
 import jwt_decode from "jwt-decode";
+import GameOne from "./component/game/game";
+import GameBattle from "./component/gameonline/gamebattle";
 
 import socketIOClient from "socket.io-client";
 import fetchApi from "./component/utilities";
 // const ENDPOINT = "http://139.59.238.195:8888";
-const socket = socketIOClient();
-const GameOne = React.lazy(() => import("./component/game/game"));
-const GameBattle = React.lazy(() =>
-  import("./component/gameonline/gamebattle")
-);
+const socket = socketIOClient("http://mathgame.one");
+
 function App() {
   const [page, setPage] = useState("home");
   const [player, setPlayer] = useState(false);
@@ -18,21 +17,24 @@ function App() {
   const [location, setLocation] = useState(false);
 
   const initialize = useCallback(async () => {
-    fetch("http://ip-api.com/json")
+    fetch("https://api.ipregistry.co/?key=g399zifsxkseen9r")
       .then((json) => json.json())
       .then((data) => {
-        if (data.status === "success") {
-          setLocation(data);
+        if (data.location) {
+          let { country, region, city } = data.location;
+          let location = {
+            country: country.name,
+            countryCode: country.code,
+            region: region.code,
+            regionName: region.name,
+            city: city,
+          };
+          setLocation(location);
         }
       });
     let random = localStorage.getItem("player");
     if (!random) {
-      let data = await fetchApi(
-        "GET",
-        "/number",
-        {},
-        ""
-      );
+      let data = await fetchApi("GET", "/number", {}, "");
       if (data.status) {
         localStorage.setItem("player", data.data);
         setPlayer(data.data);
