@@ -98,6 +98,11 @@ body #root {
   margin: auto;
   overflow: auto;
 }
+.pointgame{
+  color: #f39c12;
+  font-size: 40px;
+  font-weight: bold;
+}
 .card-item {
   display: flex;
   flex-flow: column;
@@ -258,6 +263,7 @@ a:visited {
 .intro-student-join {
   margin: 4rem auto auto 6rem;
 }
+
 @media (max-width: 550px) {
   .main-title {
     font-size: 3rem;
@@ -274,6 +280,12 @@ a:visited {
   .intro-top-options {
     flex-flow: column nowrap;
   }
+  .intro .game-logo-right img,  .intro .game-logo img {
+    width: 100px!important
+  }
+  body #root{
+    background-size: cover;
+  }
 }
 .highlight {
   color: var(--color8);
@@ -287,6 +299,7 @@ input {
   flex-flow: column;
   flex: 1 1 auto;
   overflow: auto;
+  width: 100%;
 }
 .above-wrapper {
   display: flex;
@@ -453,11 +466,14 @@ input {
 }
 .rank-setting img {
   width: 50px;
+  border: 5px solid #f39c12;
+  border-radius: 50%;
+  cursor: pointer;
 }
 .rank-setting {
   position: absolute;
-  top: 17%;
-  left: 30%;
+  top: 10px;
+  left: 10px;
 }
 .keypad-button--four:first-child,
 .keypad-button--four:last-child {
@@ -493,6 +509,7 @@ input {
   justify-content: center;
   overflow-y: auto;
   background-size: contain;
+  position: relative;
 }
 .highlights-wrapper {
   display: flex;
@@ -2715,6 +2732,13 @@ input {
 .menu-option {
   flex: 0 0 auto;
 }
+.winner{
+  color: #f1c40f;
+
+}
+.loses{
+  color: #d1d8e0;
+}
 .get-premium {
   text-transform: uppercase;
   text-decoration: none;
@@ -2728,21 +2752,37 @@ input {
 }
 .very-tall-batt {
   font-size: 15px;
+
+
   display: flex;
-  top: 1px;
-  left: 1px;
-  flex-direction: column;
-  position: fixed;
+  padding: 10px;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 .setting-sound img {
   width: 50px;
   border: 5px solid #f39c12;
   border-radius: 50%;
+  cursor: pointer;
+}
+
+.setting-home img {
+  width: 60px;
+
+  cursor: pointer;
+  transition: all 0.4s;
+}
+.setting-home img:hover{
+  transform: scale(1.1);
+}
+.setting-home {
+  margin-left: 20px;
 }
 .setting-sound {
   position: absolute;
   top: 10px;
-  left: 10px;
+  right: 10px;
 }
 .setting {
   display: flex;
@@ -2754,11 +2794,77 @@ input {
 }
 .Content {
   position: fixed;
-  top: 10px;
-  right: 0px;
-  width: 35%;
-  height: 100vh;
-  overflow: scroll;
+  width: 60%;
+  position: fixed;
+  top: 50px;
+  height: 90vh;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+@keyframes myAnimation {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, 0) rotateX(0);
+  }
+
+  100% {
+    display: none;
+    opacity: 0;
+    transform: translate(-50%, 0) rotateX(90deg);
+  }
+}
+@keyframes appear {
+  0% {
+    display: none;
+    opacity: 0;
+    transform: translate(-50%, 0) rotateX(90deg);
+  }
+
+  100% {
+    display: block;
+    opacity: 1;
+    transform: translate(-50%, 0) rotateX(0);
+  }
+}
+.disappear {
+  animation-name: myAnimation;
+  animation-duration: 1000ms;
+  animation-fill-mode: forwards;
+}
+.appear {
+  animation-name: appear;
+  animation-duration: 1000ms;
+  animation-fill-mode: forwards;
+}
+@keyframes showrank {
+  0% {
+    height: 1vh;
+  }
+  100% {
+    height: 100vh;
+  }
+}
+#style-2::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #f5f5f5;
+}
+
+#style-2::-webkit-scrollbar {
+  width: 8px;
+  background-color: #f5f5f5;
+}
+
+#style-2::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #16a085;
+}
+
+.listrank {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 80vh;
 }
 
 .setting-information {
@@ -2959,14 +3065,18 @@ input:checked + .setting-slider:before {
 .tall-bottom {
   padding-bottom: 1em;
 }
+.very-tall >div{
+  display: flex;
+}
 .very-tall {
   /* padding-top: 2em; */
   font-size: 15px;
 
   display: flex;
-  top: 1px;
-  left: 1px;
-  position: fixed;
+  padding: 10px;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 .huge {
   font-size: 3rem;
@@ -3069,6 +3179,7 @@ input:checked + .setting-slider:before {
   .basic {
     font-size: 1.1rem;
   }
+
 }
 .heading {
   font-size: 2rem;
@@ -3769,6 +3880,8 @@ main,
   overflow-x: hidden;
   flex: 0 0 calc(100 * var(--vh));
   justify-content: space-between;
+  background: #34495e;
+  align-items: center;
 }
 a,
 a:visited {
@@ -3886,6 +3999,7 @@ input {
   justify-content: flex-start;
   flex: 1 1 auto;
   font-size: calc(1.4rem + 2vh + 4vw);
+  position: relative;
 }
 .problem {
   display: flex;
@@ -3989,6 +4103,13 @@ input {
   left: 10%;
   animation: addlogo 5s infinite;
 }
+.intro .game-logo-right img {
+  width: 200px;
+  position: absolute;
+  top: 20%;
+  right: 10%;
+  animation: addlogo 5s infinite;
+}
 @keyframes addlogo {
   0% {
     scale: 1.5;
@@ -4006,7 +4127,6 @@ input {
   flex: 1 1 auto;
   justify-content: center;
   overflow-y: auto;
-  padding-right: 20vw;
 }
 .highlights-wrapper {
   display: flex;

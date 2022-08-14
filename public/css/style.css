@@ -1,7 +1,7 @@
 .base-timer {
   position: relative;
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
 }
 .opacity_05 {
   opacity: 0.5;
@@ -65,24 +65,32 @@
 
 .base-timer__label {
   position: absolute;
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
   top: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 42px;
+  font-size: 24px;
 }
 .countryinfor {
   display: flex;
   flex-direction: column;
+}
+@media (max-width: 1200px) {
+  .content{
+    width: 100%;
+  }
+  .intro .game-logo-right img,  .intro .game-logo img {
+    width: 150px
+  }
 }
 @media (max-width: 800px) {
   .keypad {
     display: flex;
   }
   .math {
-    font-size: 2.4rem
+    font-size: 2.4rem;
   }
 }
 
@@ -104,7 +112,7 @@
   #heart {
     width: 80px;
   }
- 
+
   .problem span img {
     width: 20px;
     height: 20px;

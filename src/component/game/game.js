@@ -5,6 +5,7 @@ import TimeCount from "../timecount";
 import KeyBoard from "./keyboard";
 function GameOne({ updatePage, location, user, player }) {
   const [keyboard, setKeyboard] = useState(true);
+  const [flipkey, setFlipkey] = useState(true)
   const [heart] = useState([1, 2, 3]);
   const [gameover, setGameover] = useState(false);
   const data = useRef({
@@ -183,39 +184,60 @@ function GameOne({ updatePage, location, user, player }) {
     await sleep(300);
     setUpdate(({ update }) => ({ update: !update }));
   };
+  const playagain = () => {
+    data.current = {
+      point: 0,
+      heart: 3,
+      status: true,
+      questionsCurrent: 0,
+      level: 1,
+    };
+    yourdapan.current = "?";
+    setLoading(false)
+    setGameover(false);
+    listQuestions.current =[]
+    getListQuestion()
+  };
   if (!loading) return <div>Loading</div>;
   return (
     <React.Fragment>
-      <section
-        className="math"
-        id="gameone"
-      >
+      <section className="math" id="gameone">
         <div className="very-tall">
-          <div className="setting" title="Use a touchscreen">
-            <div className="setting-information">
-              <div className="setting-title">Touchscreen</div>
+          <div>
+            <div className="setting" title="Use a touchscreen">
+              <div className="setting-information">
+                <div className="setting-title">Touchscreen</div>
+              </div>
+              <label className="setting-switch">
+                <input
+                  onChange={() => setKeyboard(!keyboard)}
+                  name="touch"
+                  checked={keyboard}
+                  type="checkbox"
+                />
+                <span className="setting-slider"></span>
+              </label>
             </div>
-            <label className="setting-switch">
-              <input
-                onClick={() => setKeyboard(!keyboard)}
-                name="touch"
-                checked={keyboard}
-                type="checkbox"
-              />
-              <span className="setting-slider"></span>
-            </label>
+            <div
+              className="setting"
+              title="For touchscreens, flip the number pad vertically"
+            >
+              <div className="setting-information">
+                <div className="setting-title"> Flip Keypad</div>
+              </div>
+              <label className="setting-switch">
+                <input name="flip" type="checkbox" checked={flipkey} onChange={()=>setFlipkey(!flipkey)} />
+                <span className="setting-slider"></span>
+              </label>
+            </div>
           </div>
-          <div
-            className="setting"
-            title="For touchscreens, flip the number pad vertically"
-          >
-            <div className="setting-information">
-              <div className="setting-title"> Flip Keypad</div>
+          <div>
+            <div className="setting-home" onClick={() => updatePage("home")}>
+              <img src="./images/home.png" />
             </div>
-            <label className="setting-switch">
-              <input name="flip" type="checkbox" />
-              <span class="setting-slider"></span>
-            </label>
+            <div className="setting-home" onClick={() => playagain()}>
+              <img src="./images/playagain.png" />
+            </div>
           </div>
         </div>
         <div className="gameheader">
@@ -231,7 +253,7 @@ function GameOne({ updatePage, location, user, player }) {
           />
 
           <div className="base-timer">
-            <span id="base-timer-label" className="base-timer__label">
+            <span id="base-timer-label" className="base-timer__label pointgame">
               {data.current.point}
             </span>
           </div>
@@ -245,10 +267,6 @@ function GameOne({ updatePage, location, user, player }) {
         ) */}
         </div>
         <section className="problem">
-          <div className="done-btn" onClick={() => updatePage("home")}>
-            Finish
-          </div>
-
           <div className="question-wrapper">
             <div className="question">
               <span>

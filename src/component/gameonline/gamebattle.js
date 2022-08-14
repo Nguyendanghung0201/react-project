@@ -240,14 +240,14 @@ function GameBattle({ updatePage, socket, user, location }) {
   return (
     <React.Fragment>
       <section className="math">
-      <div className="very-tall-batt">
+        <div className="very-tall-batt">
           <div className="setting" title="Use a touchscreen">
             <div className="setting-information">
               <div className="setting-title">Touchscreen</div>
             </div>
             <label className="setting-switch">
               <input
-                onClick={() => setKeyboard(!keyboard)}
+                onChange={() => setKeyboard(!keyboard)}
                 name="touch"
                 checked={keyboard}
                 type="checkbox"
@@ -264,7 +264,7 @@ function GameBattle({ updatePage, socket, user, location }) {
             </div>
             <label className="setting-switch">
               <input name="flip" type="checkbox" />
-              <span class="setting-slider"></span>
+              <span className="setting-slider"></span>
             </label>
           </div>
         </div>
@@ -316,8 +316,21 @@ function GameBattle({ updatePage, socket, user, location }) {
               </div>
             )}
             {gameover.current ? (
-              <span>
-                <img src="./images/logo192.png" />
+              <span
+                className={
+                  dataGame?.data[user.id]?.point >=
+                  dataGame?.data[friendId]?.point
+                    ? "winner"
+                    : "loses"
+                }
+              >
+                {dataGame?.data[user.id]?.point >
+                dataGame?.data[friendId]?.point
+                  ? "VICTORY"
+                  : dataGame?.data[user.id]?.point ==
+                    dataGame?.data[friendId]?.point
+                  ? "DRAW"
+                  : "DEFEAT"}
               </span>
             ) : question && question.question ? (
               <div className="question-wrapper">

@@ -8,7 +8,7 @@ import GameBattle from "./component/gameonline/gamebattle";
 import socketIOClient from "socket.io-client";
 import fetchApi from "./component/utilities";
 // const ENDPOINT = "http://139.59.238.195:8888";
-const socket = socketIOClient("http://mathgame.one");
+const socket = socketIOClient("https://mathgame.one");
 
 function App() {
   const [page, setPage] = useState("home");

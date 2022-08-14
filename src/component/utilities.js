@@ -1,4 +1,4 @@
-const baseurl = 'http://mathgame.one';
+const baseurl = 'https://mathgame.one';
 const fetchApi = (type, url, data, token) => {
   return new Promise((resolve, reject) => {
     try {

@@ -105,12 +105,15 @@ function Home({ updatePage, updateUser, user, player, location }) {
   return (
     <React.Fragment>
       <div className="intro">
-        {/* <div className="rank-setting">
+        <div className="rank-setting">
           <div>
-            <img onClick={() => setRank(true)} src="/images/rank.png" />
+            <img onClick={() => setRank(!rank)} src="./images/rank.png" />
           </div>
-        </div> */}
+        </div>
         <div className="game-logo">
+              <img src="./images/add.png" />
+        </div>
+        <div className="game-logo-right">
               <img src="./images/add.png" />
         </div>
         <div className="setting-sound">
@@ -194,7 +197,8 @@ function Home({ updatePage, updateUser, user, player, location }) {
             <button onClick={() => playerReady("gamebattle")}>1 vs 1</button>
           </div>
         </section>
-        <Rank close={() => setRank(false)} />
+    
+       <Rank status={rank} />
       </div>
 
       {/* <section className="start-wrapper2">
